@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../auth/auth');
 const AllPost = require('../controller/post');
 const AllUser = require('../controller/user');
 const postController = new AllPost();
 const userController = new AllUser();
+
 
 router.get('/', (req,res)=>{
     console.log('healthy API, you are welcome');
@@ -22,7 +24,7 @@ router.get('/post', (req,res)=>{
 });
 
 router.post('/post/create', (req,res)=>{
-    postController.createPost(req,res);
+    auth, postController.createPost(req,res);
 });
 
 router.post('/post/signup', (req,res)=>{
@@ -30,8 +32,8 @@ router.post('/post/signup', (req,res)=>{
 });
 
 router.post('/post/login', (req,res)=>{
-    userController.login(req,res);
+    userController.logIn(req,res);
 });
 
 
-module.exports = router; 
+module.exports = router;
