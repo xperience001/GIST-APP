@@ -21,7 +21,7 @@ class allUser {
             if(data){
                 return res.send({
                     error:true,
-                    message: `email ${email} already exists`
+                    message: `email ${email} already exists.`
                 });
             }
             else{
